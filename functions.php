@@ -27,3 +27,30 @@ function lesson_theme_registration()
     ));
 }
 add_action('after_setup_theme', 'lesson_theme_registration');
+
+
+function lessons_customize_register($wp_customize)
+{
+    // Footer Section
+    $wp_customize->add_section('footer_section', array(
+        'title'       => __('Footer Settings', 'lessonlms'),
+        'priority'    => 120,
+        'description' => 'Customize Footer Settings',
+    ));
+
+    // Footer Text Setting
+    $wp_customize->add_setting('footer_text', array(
+        'default'           => 'Need to help for your dream Career? trust us. With Lesson, study becomes a lot easier with us.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    // // Footer Text Control
+    $wp_customize->add_control('footer_text_control', array(
+        'label'       => __('Footer Text', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_text',
+        'type'        => 'textarea',
+    ));
+}
+
+add_action('customize_register', 'lessons_customize_register');

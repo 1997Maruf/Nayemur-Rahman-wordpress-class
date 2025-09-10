@@ -4,7 +4,7 @@
             <div class="w-full md:w-[277px]">
                 <img class="mt-1" src="<?php echo get_stylesheet_directory_uri(); ?>/src/img/footer-logo.png" alt="Footer Logo" />
                 <p class="text-[#BFBCB2] text-sm font-normal leading-6 mt-6 max-w-[267px]">
-                    Need to help for your dream Career? trust us. With Lesson, study becomes a lot easier with us.
+                    <?php echo get_theme_mod('footer_text', 'Need to help for your dream Career? trust us. With Lesson, study becomes a lot easier with us.'); ?>
                 </p>
                 <svg class="mt-5" xmlns="http://www.w3.org/2000/svg" width="111" height="15" viewBox="0 0 111 15" fill="none">
                     <!-- SVG paths unchanged -->
