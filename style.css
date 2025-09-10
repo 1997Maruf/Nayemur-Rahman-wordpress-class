@@ -1,0 +1,17 @@
+/*
+Theme Name: Lesson LMS
+Theme URI: https://example.com/lesson-lms
+Description: A custom LMS theme for WordPress.
+Author: Maruf Hasan
+Author URI: https://wp-kama.com
+Version: 1.0.0
+Text Domain: lessonlms
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: lms, education, responsive, custom-colors
+*/
+
+/* =Theme customization starts here
+-------------------------------------------------------------- */
+
+@import url('./src/output.css');

@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Sen", sans-serif;
+
+}
+
+body {
+    font-family: "Funnel Sans", sans-serif;
+
+}
+
+.main-menu {
+    @apply flex gap-[47px];
+}
+
+.main-menu li a {
+    @apply hover:text-[#171100] hover:border-b-2 hover:border-[#171100];
+}
+
+/* Default অবস্থায় submenu hide থাকবে */
+.main-menu .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* parent link এর নিচে show হবে */
+    left: 0;
+    background: #fff;
+    padding: 10px 0;
+    min-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+}
+
+.footer-menu li a {
+    @apply mt-6 text-[#BFBCB2] text-base leading-6 cursor-pointer hover:text-white;
+}
