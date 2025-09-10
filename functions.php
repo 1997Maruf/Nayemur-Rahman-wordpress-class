@@ -12,6 +12,10 @@ add_action('wp_enqueue_scripts', 'lesson_enqueue_styles');
 
 function lesson_theme_registration()
 {
+
+    add_theme_support('post-thumbnails');
+
+
     add_theme_support('custom-logo', array(
         'height'      => 30,
         'width'       => 80,
@@ -31,6 +35,42 @@ add_action('after_setup_theme', 'lesson_theme_registration');
 
 function lessons_customize_register($wp_customize)
 {
+
+    //blog section
+    $wp_customize->add_section('blog_section', array(
+        'title'       => __('Blog Settings', 'lessonlms'),
+        'priority'    => 130,
+        'description' => 'Customize Blog Settings',
+    ));
+
+    //blog headding
+    $wp_customize->add_setting('blog_heading', array(
+        'default'           => 'From Our Blog',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('blog_heading_control', array(
+        'label'       => __('Blog Heading', 'lessonlms'),
+        'section'     => 'blog_section',
+        'settings'    => 'blog_heading',
+        'type'        => 'text',
+    ));
+
+    //blog description
+    $wp_customize->add_setting('blog_description', array(
+        'default'           => 'Our latest news, articles, and resources, we share with our customers.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('blog_description_control', array(
+        'label'       => __('Blog Description', 'lessonlms'),
+        'section'     => 'blog_section',
+        'settings'    => 'blog_description',
+        'type'        => 'textarea',
+    ));
+
+
+
+
+
     // Footer Section
     $wp_customize->add_section('footer_section', array(
         'title'       => __('Footer Settings', 'lessonlms'),
