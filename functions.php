@@ -6,6 +6,8 @@ function lesson_enqueue_styles()
 {
     //Theme style css
     wp_enqueue_style('style-css', get_template_directory_uri() . './style.css');
+    // Font Awesome
+    wp_enqueue_style('font-awesome-css', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css', array(), '7.0.0');
 }
 add_action('wp_enqueue_scripts', 'lesson_enqueue_styles');
 
@@ -194,3 +196,18 @@ function lessons_customize_register($wp_customize)
 }
 
 add_action('customize_register', 'lessons_customize_register');
+
+
+function lesson_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => __('Sidebar', 'lessonlms'),
+        'id'            => 'sidebar-1',
+        'description'   => __('Add widgets here to appear in your sidebar.', 'lessonlms'),
+        'before_widget' => '<section id="%1$s" class="widget %2$s mb-8">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title text-xl font-semibold mb-4">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'lesson_widgets_init');
