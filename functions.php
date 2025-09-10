@@ -38,6 +38,35 @@ function lessons_customize_register($wp_customize)
         'description' => 'Customize Footer Settings',
     ));
 
+    //footer logo
+    $wp_customize->add_setting('footer_logo', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'footer_logo_control', array(
+        'label'       => __('Footer Logo', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_logo',
+        'priority'    => 1,
+    )));
+
+    //social media links
+    $social_media_platforms = array('facebook', 'twitter', 'linkedin', 'instagram', 'youtube');
+    foreach ($social_media_platforms as $platform) {
+        $wp_customize->add_setting($platform . '_link', array(
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+        ));
+        $wp_customize->add_control($platform . '_link_control', array(
+            'label'       => ucfirst($platform) . ' URL',
+            'section'     => 'footer_section',
+            'settings'    => $platform . '_link',
+            'type'        => 'url',
+            'priority'    => 1,
+        ));
+    }
+
+
     // Footer Text Setting
     $wp_customize->add_setting('footer_text', array(
         'default'           => 'Need to help for your dream Career? trust us. With Lesson, study becomes a lot easier with us.',
