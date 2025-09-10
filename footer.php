@@ -14,7 +14,7 @@
             </div>
             <div class="flex flex-wrap gap-x-10 gap-y-10 flex-1 min-w-[250px]">
                 <div class="min-w-[150px] flex-1">
-                    <h3 class="text-white text-lg font-semibold leading-7">Company</h3>
+                    <h3 class="text-white text-lg font-semibold leading-7"><?php echo esc_html(get_theme_mod('footer_menu_1_title', 'Company')); ?></h3>
                     <div class="w-[130px] h-[1px] mt-3 bg-[#59554B]"></div>
                     <!-- <p class="mt-7 text-[#BFBCB2] text-base leading-6 cursor-pointer hover:text-white">About Us</p>
                     <p class="mt-3 text-[#BFBCB2] text-base leading-6 cursor-pointer hover:text-white">Features</p>
@@ -29,7 +29,7 @@
                     </ul>
                 </div>
                 <div class="min-w-[150px] flex-1">
-                    <h3 class="text-white text-lg font-semibold leading-7">Support</h3>
+                    <h3 class="text-white text-lg font-semibold leading-7"><?php echo esc_html(get_theme_mod('footer_menu_2_title', 'Support')); ?></h3>
                     <div class="w-[130px] h-[1px] mt-3 bg-[#59554B]"></div>
                     <!-- <p class="mt-7 text-[#BFBCB2] text-base leading-6 cursor-pointer hover:text-white">FAQ’s</p>
                     <p class="mt-3 text-[#BFBCB2] text-sm leading-6 cursor-pointer hover:text-white">Terms & Conditions</p>
@@ -43,11 +43,11 @@
                         )); ?>
                 </div>
                 <div class="min-w-[150px] flex-1">
-                    <h3 class="text-white text-lg font-semibold leading-7">Address</h3>
+                    <h3 class="text-white text-lg font-semibold leading-7"><?php echo esc_html(get_theme_mod('footer_address', 'Address')); ?></h3>
                     <div class="w-[130px] h-[1px] mt-3 bg-[#59554B]"></div>
-                    <p class="mt-7 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Location: </span> 27 Division St, New York, NY 10002, USA</p>
-                    <p class="mt-3 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Email: </span> email@gmail.com</p>
-                    <p class="mt-3 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Phone: </span> + 000 1234 567 890</p>
+                    <p class="mt-7 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Location: </span> <?php echo esc_html(get_theme_mod('footer_location', 'Location')); ?></p>
+                    <p class="mt-3 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Email: </span> <?php echo esc_html(get_theme_mod('footer_email', 'email@gmail.com')); ?></p>
+                    <p class="mt-3 text-[#BFBCB2] text-base leading-6"><span class="font-semibold">Phone: </span> <?php echo esc_html(get_theme_mod('footer_phone', '+ 000 1234 567 890')); ?></p>
 
                     </ul>
                 </div>

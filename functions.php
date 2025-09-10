@@ -51,6 +51,77 @@ function lessons_customize_register($wp_customize)
         'settings'    => 'footer_text',
         'type'        => 'textarea',
     ));
+    //footer menu 1 title
+    $wp_customize->add_setting('footer_menu_1_title', array(
+        'default'           => 'Company',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_menu_1_title_control', array(
+        'label'       => __('Footer Menu 1 Title', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_menu_1_title',
+        'type'        => 'text',
+    ));
+
+    //footer menu 2 title
+    $wp_customize->add_setting('footer_menu_2_title', array(
+        'default'           => 'Support',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_menu_2_title_control', array(
+        'label'       => __('Footer Menu 2 Title', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_menu_2_title',
+        'type'        => 'text',
+    ));
+
+    //footer address
+    $wp_customize->add_setting('footer_address', array(
+        'default'           => '27 Division St, New York, NY 10002, USA',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_address_control', array(
+        'label'       => __('Footer Address', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_address',
+        'type'        => 'textarea',
+    ));
+
+    //footer location
+    $wp_customize->add_setting('footer_location', array(
+        'default'           => '27 Division St, New York, NY 10002, USA',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_location_control', array(
+        'label'       => __('Footer Location', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_location',
+        'type'        => 'textarea',
+    ));
+
+    //footer email
+    $wp_customize->add_setting('footer_email', array(
+        'default'           => 'email@gmail.com',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_email_control', array(
+        'label'       => __('Footer Email', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_email',
+        'type'        => 'text',
+    ));
+
+    //footer phone
+    $wp_customize->add_setting('footer_phone', array(
+        'default'           => '+ 000 1234 567 890',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('footer_phone_control', array(
+        'label'       => __('Footer Phone', 'lessonlms'),
+        'section'     => 'footer_section',
+        'settings'    => 'footer_phone',
+        'type'        => 'text',
+    ));
 }
 
 add_action('customize_register', 'lessons_customize_register');
