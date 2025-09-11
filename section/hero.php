@@ -14,7 +14,7 @@
                             </svg>
                         </div>
                         <div>
-                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]">20 Courses</p>
+                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]"><?php echo get_theme_mod('ui_ux_course_count', '20'); ?> Courses</p>
                             <h5 class="text-[#171100] text-lg font-semibold leading-[30px]">UI/UX Design</h5>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                             </svg>
                         </div>
                         <div class="mt-0.5">
-                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]">20 Courses</p>
+                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]"><?php echo get_theme_mod('development_course_count', '20'); ?> Courses</p>
                             <h5 class="text-[#171100] text-lg font-semibold leading-[30px]">Development</h5>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                             </svg>
                         </div>
                         <div class="mt-1">
-                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]">20 Courses</p>
+                            <p class="text-[#5F5B53] text-sm font-normal leading-[26px]"><?php echo get_theme_mod('marketing_course_count', '20'); ?> Courses</p>
                             <h5 class="text-[#171100] text-lg font-semibold leading-[30px]">Marketing</h5>
                         </div>
                     </div>
@@ -76,10 +76,10 @@
                 <p class="mt-10 lg:mt-[42px] text-[#5F5B53] text-center text-lg lg:text-xl font-normal"><?php echo esc_html(get_theme_mod('engagement_title', 'Recent Engagement')); ?></p>
                 <div class="flex flex-col sm:flex-row gap-6 lg:gap-[33px] mt-4 items-center justify-center">
                     <div>
-                        <p class="text-[#171100] text-4xl lg:text-[44px] font-bold flex gap-2 lg:gap-[10px] items-center">50K <span class="text-[#5F5B53] pt-1 lg:pt-2 text-lg lg:text-xl leading-[30px] lg:mt-[7px] font-normal">Students</span></p>
+                        <p class="text-[#171100] text-4xl lg:text-[44px] font-bold flex gap-2 lg:gap-[10px] items-center"><?php echo esc_html(get_theme_mod('student_count', '50K')); ?> <span class="text-[#5F5B53] pt-1 lg:pt-2 text-lg lg:text-xl leading-[30px] lg:mt-[7px] font-normal"><?php echo esc_html(get_theme_mod('student_label', 'Students')); ?></span></p>
                     </div>
                     <div>
-                        <p class="text-[#171100] text-4xl lg:text-[44px] font-bold flex gap-2 lg:gap-[10px] items-center">70+ <span class="text-[#5F5B53] pt-1 lg:pt-2 text-lg lg:text-xl leading-[30px] lg:mt-[7px] font-normal">Courses</span></p>
+                        <p class="text-[#171100] text-4xl lg:text-[44px] font-bold flex gap-2 lg:gap-[10px] items-center"><?php echo esc_html(get_theme_mod('course_count', '70+')); ?> <span class="text-[#5F5B53] pt-1 lg:pt-2 text-lg lg:text-xl leading-[30px] lg:mt-[7px] font-normal"><?php echo esc_html(get_theme_mod('course_label', 'Courses')); ?></span></p>
                     </div>
                 </div>
             </div>
