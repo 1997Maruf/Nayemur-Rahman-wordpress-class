@@ -582,6 +582,7 @@ $label =  array(
     'not_found_in_trash' => __('No courses found in Trash', 'lessonlms'),
     'all_items' => __('All Courses', 'lessonlms'),
     'menu_name' => __('Courses', 'lessonlms'),
+    'rewrite' => array('slug' => 'course'),
 );
 
 $args = array(
