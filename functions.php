@@ -227,6 +227,83 @@ function lessons_customize_register($wp_customize)
     ));
 
 
+
+
+  ///CTA section
+    $wp_customize->add_section('cta_section', array(
+        'title'       => __('CTA Settings', 'lessonlms'),
+        'priority'    => 105,
+        'description' => 'Customize CTA Section',
+    ));
+
+    //cta title
+    $wp_customize->add_setting('cta_title', array(
+        'default'           => 'Take the next step toward your personal and professional goals with Lesson.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('cta_title_control', array(
+        'label'       => __('CTA', 'lessonlms'),
+        'section'     => 'cta_section',
+        'settings'    => 'cta_title',
+        'type'        => 'text',
+    ));
+
+    //CTA description
+    $wp_customize->add_setting('cta_description', array(
+        'default'           => 'Take the next step toward. Join now to receive personalized and more recommendations from the full Coursera catalog.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('cta_description_control', array(
+        'label'       => __('CTA Description', 'lessonlms'),
+        'section'     => 'cta_section',
+        'settings'    => 'cta_description',
+        'type'        => 'textarea',
+    ));
+
+    //CTA button text
+    $wp_customize->add_setting('cta_button_text', array(
+        'default'           => 'Join Now',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('cta_button_text_control', array(
+        'label'       => __('CTA Button Text', 'lessonlms'),
+        'section'     => 'cta_section',
+        'settings'    => 'cta_button_text',
+        'type'        => 'text',
+    ));
+
+  //CTA button link
+     $wp_customize->add_setting('cta_button_url', array(
+        'default' => '#',
+    ));
+    $wp_customize->add_control('cta_button_url_control', array(
+        'label'       => __('CTA Button Link', 'lessonlms'),
+        'section'     => 'cta_section',
+        'settings'    => 'cta_button_url',
+        'type'        => 'url',
+    ));
+
+    //CTA image
+    $wp_customize->add_setting('cta_image', array(
+        'default'           => get_stylesheet_directory_uri() . '/src/img/thounght3.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'cta_image_control', array(
+        'label'       => __('CTA Image', 'lessonlms'),
+        'section'     => 'cta_section',
+        'settings'    => 'cta_image',
+        'priority'    => 1,
+    )));
+
+
+
+
+
+
+
+
+
+
     //blog section
     $wp_customize->add_section('blog_section', array(
         'title'       => __('Blog Settings', 'lessonlms'),
