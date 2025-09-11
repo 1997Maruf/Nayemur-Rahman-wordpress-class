@@ -226,8 +226,96 @@ function lessons_customize_register($wp_customize)
         'type'        => 'number',
     ));
 
+//featured section
+    $wp_customize->add_section('featured_section', array(
+        'title'       => __('Featured Settings', 'lessonlms'),
+        'priority'    => 100,
+        'description' => 'Customize Featured Section',
+    ));
 
+    //featured title
+    $wp_customize->add_setting('featured_title', array(
+        'default'           => 'Featured Courses',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('featured_title_control', array(
+        'label'       => __('Featured Title', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_title',
+        'type'        => 'text',
+    ));
 
+    //featured description
+    $wp_customize->add_setting('featured_description', array(
+        'default'           => '87% of people learning for professional development<br />
+                    report career benefits like getting a promotion, a raise, or<br />
+                    starting a new career.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('featured_description_control', array(
+        'label'       => __('Featured Description', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_description',
+        'type'        => 'textarea',
+    ));
+
+ //featured description two
+    $wp_customize->add_setting('featured_description_two', array(
+        'default'           => 'Lesson Impact Report (2022)',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('featured_description_two_control', array(
+        'label'       => __('Featured Description Two', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_description_two',
+        'type'        => 'text',
+    ));
+
+  //featured button text
+    $wp_customize->add_setting('featured_button_text', array(
+        'default'           => 'Sign Up',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('featured_button_text_control', array(
+        'label'       => __('Featured Button Text', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_button_text',
+        'type'        => 'text',
+    ));
+    //featured button link
+        $wp_customize->add_setting('featured_button_url', array(
+            'default' => '#',
+        ));
+    $wp_customize->add_control('featured_button_url_control', array(
+        'label'       => __('Featured Button Link', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_button_url',
+        'type'        => 'url',
+    ));
+
+    //featured image one
+    $wp_customize->add_setting('featured_image_one', array(
+        'default'           => get_stylesheet_directory_uri() . '/src/img/thounght1.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'featured_image_one_control', array(
+        'label'       => __('Featured Image One', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_image_one',
+        'priority'    => 1,
+    )));
+
+    //featured image two
+    $wp_customize->add_setting('featured_image_two', array(
+        'default'           => get_stylesheet_directory_uri() . '/src/img/thounght2.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'featured_image_two_control', array(
+        'label'       => __('Featured Image Two', 'lessonlms'),
+        'section'     => 'featured_section',
+        'settings'    => 'featured_image_two',
+        'priority'    => 2,
+    )));
 
   ///CTA section
     $wp_customize->add_section('cta_section', array(
@@ -477,3 +565,36 @@ function lesson_widgets_init()
     ));
 }
 add_action('widgets_init', 'lesson_widgets_init');
+
+
+
+function lesson_register_course(){
+$label =  array(
+    'name' => __('Courses', 'lessonlms'),
+    'singular_name' => __('Course', 'lessonlms'),
+    'add_new' => __('Add New Course', 'lessonlms'),
+    'add_new_item' => __('Add New Course', 'lessonlms'),
+    'edit_item' => __('Edit Course', 'lessonlms'),
+    'new_item' => __('New Course', 'lessonlms'),
+    'view_item' => __('View Course', 'lessonlms'),
+    'search_items' => __('Search Courses', 'lessonlms'),
+    'not_found' => __('No courses found', 'lessonlms'),
+    'not_found_in_trash' => __('No courses found in Trash', 'lessonlms'),
+    'all_items' => __('All Courses', 'lessonlms'),
+    'menu_name' => __('Courses', 'lessonlms'),
+);
+
+$args = array(
+    'labels' => $label,
+    'public' => true,
+    'has_archive' => true,
+    'menu_icon' => 'dashicons-welcome-learn-more',
+    'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+    'rewrite' => array('slug' => 'courses'),
+);
+
+register_post_type('course', $args);
+
+}
+
+add_action('init','lesson_register_course');
