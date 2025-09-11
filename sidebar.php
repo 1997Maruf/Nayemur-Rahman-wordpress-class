@@ -2,14 +2,10 @@
 
     <!-- Search Widget -->
     <div class="sidebar-widget search-widget bg-white shadow-md rounded-xl p-6">
-        <h3 class="widget-title text-xl font-semibold text-gray-900 border-b pb-3 mb-4">Search</h3>
-        <form class="flex items-center">
-            <input type="text" placeholder="Search..."
-                class="w-full border border-gray-300 rounded-l-lg px-4 py-2 focus:ring-2 focus:ring-yellow-500 focus:outline-none">
-            <button type="submit"
-                class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-r-lg transition">
-                <i class="fas fa-search"></i>
-            </button>
+        <h5><?php _e('Search', 'lessonlms'); ?></h5>
+        <form class="search-form  w-full" action="<?php echo esc_url(home_url('/')); ?>" role="search" method="get">
+            <input type="search" name="s" id="search" placeholder="<?php esc_attr_e('Search...', 'lessonlms'); ?>" value="<?php echo get_search_query(); ?>" required>
+            <button class="cursor-pointer" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
 

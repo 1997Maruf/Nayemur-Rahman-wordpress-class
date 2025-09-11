@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row gap-12 lg:gap-[233px]">
             <div class="relative">
                 <div class="pt-6 lg:pt-[24px] lg:w-[470px]">
-                    <img src="<?php echo get_stylesheet_directory_uri() ?>/src/img/hero-img.png" alt="" class="w-full">
+                    <img src="<?php echo get_theme_mod('hero_image', get_stylesheet_directory_uri() . '/src/img/hero-img.png'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" class="w-full">
                 </div>
                 <div class="lg:-mt-[290px] -mt-[200px] bg-white pt-[26px] pb-[28px] pl-[24px] absolute lg:ml-[300px] ml-5 w-[242px] rounded-xl">
                     <div class="flex items-center gap-4">
@@ -45,12 +45,13 @@
             </div>
 
             <div class="lg:w-[470px] w-full">
-                <h2 class="w-full lg:text-[54px] text-3xl md:text-4xl tracking-[.59px] lg:leading-[68px] mt-12 lg:mt-[93px] text-black font-bold">Learn without limits and spread knowledge.</h2>
-                <p class="mt-5 lg:mt-[21px] w-full leading-[30px] text-lg lg:text-xl font-normal text-[#5F5B53]">Build new skills for that "this is my year" feeling with courses, certificates, and degrees from world-class universities and companies.</p>
+                <h2 class="w-full lg:text-[54px] text-3xl md:text-4xl tracking-[.59px] lg:leading-[68px] mt-12 lg:mt-[93px] text-black font-bold"><?php echo get_theme_mod('hero_title', 'Learn without limits and spread knowledge.'); ?></h2>
+                <p class="mt-5 lg:mt-[21px] w-full leading-[30px] text-lg lg:text-xl font-normal text-[#5F5B53]"><?php echo esc_html(get_theme_mod('hero_description','Build new skills for that “this is my year” feeling with courses, certificates, and degrees from world-class universities and companies.')); ?></p>
                 <div class="flex flex-col sm:flex-row items-center gap-3 lg:gap-[12px] mt-8 lg:mt-[34px]">
-                    <button class="w-full sm:w-[180px] h-16 rounded-full px-8 py-4 text-white text-lg font-semibold leading-[30px] hover:bg-black cursor-pointer bg-[#FFB900]">See Courses</button>
+                    <a href="<?php echo esc_url(get_theme_mod('hero_button_link', '#'))?>" class="w-full sm:w-[180px] h-16 rounded-full px-8 py-4 text-white text-lg font-semibold leading-[30px] hover:bg-black cursor-pointer bg-[#FFB900]"><?php echo esc_html(get_theme_mod('hero_button_text', 'See Courses')); ?></a>
                     <div class="flex items-center gap-2 lg:gap-1">
-                        <svg class="w-16 h-16 lg:w-[72px] lg:h-[72px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
+                        <a href="<?php echo esc_url(get_theme_mod('hero_video_url','#')); ?>">
+                            <svg class="w-16 h-16 lg:w-[72px] lg:h-[72px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" fill="none">
                             <g filter="url(#filter0_d_4_204)">
                                 <circle cx="36" cy="28" r="20" fill="white" />
                             </g>
@@ -68,10 +69,11 @@
                                 </filter>
                             </defs>
                         </svg>
-                        <h3 class="text-[#171100] text-lg font-semibold leading-[30px]">Watch Video</h3>
+                       </a>
+                        <h3 class="text-[#171100] text-lg font-semibold leading-[30px]"><a href="<?php echo esc_url(get_theme_mod('hero_video_url','#')); ?>"><?php echo esc_html(get_theme_mod('hero_video_text', 'Watch Video')); ?></a></h3>
                     </div>
                 </div>
-                <p class="mt-10 lg:mt-[42px] text-[#5F5B53] text-center text-lg lg:text-xl font-normal">Recent engagement</p>
+                <p class="mt-10 lg:mt-[42px] text-[#5F5B53] text-center text-lg lg:text-xl font-normal"><?php echo esc_html(get_theme_mod('engagement_title', 'Recent Engagement')); ?></p>
                 <div class="flex flex-col sm:flex-row gap-6 lg:gap-[33px] mt-4 items-center justify-center">
                     <div>
                         <p class="text-[#171100] text-4xl lg:text-[44px] font-bold flex gap-2 lg:gap-[10px] items-center">50K <span class="text-[#5F5B53] pt-1 lg:pt-2 text-lg lg:text-xl leading-[30px] lg:mt-[7px] font-normal">Students</span></p>

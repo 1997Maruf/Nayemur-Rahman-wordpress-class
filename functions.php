@@ -38,6 +38,110 @@ add_action('after_setup_theme', 'lesson_theme_registration');
 function lessons_customize_register($wp_customize)
 {
 
+    //hero section
+    $wp_customize->add_section('hero_section', array(
+        'title'       => __('Hero Settings', 'lessonlms'),
+        'priority'    => 30,
+        'description' => 'Customize Hero Section',
+    ));
+
+    //hero image
+    $wp_customize->add_setting('hero_image', array(
+        'default'           => get_stylesheet_directory_uri() . '/src/img/hero-img.png',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_image_control', array(
+        'label'       => __('Hero Image', 'lessonlms'),
+        'section'     => 'hero_section',
+        'settings'    => 'hero_image',
+        'priority'    => 1,
+    )));
+
+
+    //hero title
+    $wp_customize->add_setting('hero_title', array(
+        'default'           => 'Learn without limits and spread knowledge.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('hero_title_control', array(
+        'label'       => __('Hero Title', 'lessonlms'),
+        'section'     => 'hero_section',
+        'settings'    => 'hero_title',
+        'type'        => 'text',
+    ));
+
+
+    //hero description
+
+    $wp_customize->add_setting('hero_description', array(
+        'default'           => 'Build new skills for that "this is my year" feeling with courses, certificates, and degrees from world-class universities and companies.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('hero_description_control', array(
+        'label'       => __('Hero Description', 'lessonlms'),
+        'section'     => 'hero_section',
+        'settings'    => 'hero_description',
+        'type'        => 'textarea',
+    ));
+
+    //hero button text
+    $wp_customize->add_setting('hero_button_text', array(
+        'default'           => 'See Courses',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('hero_button_text_control', array(
+        'label'       => __('Hero Button Text', 'lessonlms'),
+        'section'     => 'hero_section',
+        'settings'    => 'hero_button_text',
+        'type'        => 'text',
+    ));
+
+    //hero button link
+     $wp_customize->add_setting('hero_button_url', array(
+        'default' => '#',
+    ));
+
+    $wp_customize->add_control('hero_button_url', array(
+        'label' => __('Hero Button URL','lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'url',
+    ));
+
+
+    // Hero Video Text
+    $wp_customize->add_setting('hero_video_text', array(
+        'default' => 'Watch Video',
+    ));
+    $wp_customize->add_control('hero_video_text', array(
+        'label' => __('Hero Video Text','lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'text',
+    ));
+
+    // Hero video link
+    $wp_customize->add_setting('hero_video_url', array(
+        'default' => '#',
+    ));
+
+    $wp_customize->add_control('hero_video_url', array(
+        'label' => __('Hero Video URL','lessonlms'),
+        'section' => 'hero_section',
+        'type' => 'url',
+    ));
+
+    //engagement title
+    $wp_customize->add_setting('engagement_title', array(
+        'default'           => 'Recent engagement',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('engagement_title_control', array(
+        'label'       => __('Engagement Title', 'lessonlms'),
+        'section'     => 'hero_section',
+        'settings'    => 'engagement_title',
+        'type'        => 'text',
+    ));
+
+
     //blog section
     $wp_customize->add_section('blog_section', array(
         'title'       => __('Blog Settings', 'lessonlms'),
