@@ -3,6 +3,12 @@
         while (have_posts()) : the_post();
 
         $price = get_post_meta(get_the_ID(),'price',true) ?: '0.00';
+        $original_price = get_post_meta(get_the_ID(),'original_price',true) ?: '0.00';
+
+        $discount = '';
+        if(!empty($original_price) && $original_price > $price){
+            $discount = round((($original_price - $price) / $original_price) * 100);
+        }
     ?>
 
     
@@ -16,7 +22,7 @@
                         >
                         <li><?php the_title(); ?></li>
                     </ul>
-                  </div>
+                  </div> 
                     <div class="service-title">
                     <h3><?php the_title(); ?></h3>
                    </div>
@@ -83,8 +89,10 @@
                                     <h5><?php echo esc_html($price); ?></h5>
                                 <?php endif; ?>
                                 <!-- <h5>$199.99</h5> -->
-                                <h6>$299.99</h6>
-                                <div class="services-dis"><p>33% OFF</p></div>
+                                <h6>$<?php echo esc_html($original_price); ?></h6>
+                                <?php if(!empty($discount)) : ?>
+                                    <div class="services-dis"><p><?php echo esc_html($discount); ?>% OFF</p></div>
+                                <?php endif; ?>
                             </div>
                             <a class="servicess-btn" href="#">Enroll Now</a>
                             <div class="services-details">

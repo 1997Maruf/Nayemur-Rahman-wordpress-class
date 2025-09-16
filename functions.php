@@ -599,3 +599,44 @@ register_post_type('course', $args);
 }
 
 add_action('init','lesson_register_course');
+
+function lesson_course_meta_boxes(){
+    add_meta_box(
+        'course_details',
+        __('Course Details', 'lessonlms'),
+        'lesson_course_details_callback',
+        'course',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'lesson_course_meta_boxes');
+
+function lesson_course_details_callback($post){
+   $price = get_post_meta($post->ID, 'price', true);
+   $original_price = get_post_meta($post->ID, 'original_price', true);
+
+    ?>
+    <p>
+          <label for="course_price">Price</label>
+          <input type="number" id="course_price" name="course_price" value="<?php echo esc_attr($price); ?>" step="0.01" min="0" style="width: 100%; max-width: 300px;">
+    </p>
+    <p>
+          <label for="course_original_price">Original Price</label>
+          <input type="number" id="course_original_price" name="course_original_price" value="<?php echo esc_attr($original_price); ?>" step="0.01" min="0" style="width: 100%; max-width: 300px;">
+    </p>
+    <?php
+}
+
+function lesson_save_course_meta($post_id){
+    $fields = array(
+        'price',
+        'original_price',
+    );
+    foreach ($fields as $field){
+        if(isset($_POST['course_' . $field])){
+            update_post_meta($post_id, $field, sanitize_text_field($_POST['course_' . $field]));
+        }
+    }
+}
+add_action('save_post_course', 'lesson_save_course_meta');
